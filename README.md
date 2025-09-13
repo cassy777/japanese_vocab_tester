@@ -11,7 +11,7 @@
 
 ## 如何使用
 
-1.  直接访问 [GitHub Pages页面](https://你的用户名.github.io/仓库名/)
+1.  直接访问 [GitHub Pages页面](https://cassy777.github.io/japanese_vocab_tester/)
 2.  查看屏幕上显示的中文意思
 3.  在输入框中输入对应的日语词汇
 4.  点击"提交"按钮查看结果
