@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日语词汇测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .question { font-size: 24px; margin-bottom: 20px; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>日语词汇测试</h1>
+    <div class="question" id="question"></div>
+    <input type="text" id="answer" placeholder="输入你的答案">
+    <button onclick="checkAnswer()">提交</button>
+    <div class="result" id="result"></div>
+    
+    <script>
+        // 简单的日语词汇库（日语：中文意思）
+        const vocabulary = [
+            { ja: "こんにちは", zh: "你好" },
+            { ja: "ありがとう", zh: "谢谢" },
+            { ja: "さようなら", zh: "再见" }
+        ];
+        
+        let currentWord = null;
+        
+        function displayQuestion() {
+            // 随机选择一个词汇
+            const randomIndex = Math.floor(Math.random() * vocabulary.length);
+            currentWord = vocabulary[randomIndex];
+            
+            // 显示中文意思，要求输入日语
+            document.getElementById('question').textContent = 
+                `"${currentWord.zh}" 的日语是：`;
+            document.getElementById('answer').value = '';
+            document.getElementById('result').textContent = '';
+        }
+        
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim();
+            const resultElement = document.getElementById('result');
+            
+            if (userAnswer === currentWord.ja) {
+                resultElement.textContent = "正确！";
+                resultElement.style.color = 'green';
+            } else {
+                resultElement.textContent = `不对，正确答案是: ${currentWord.ja}`;
+                resultElement.style.color = 'red';
+            }
+            
+            // 1秒后显示新问题
+            setTimeout(displayQuestion, 1000);
+        }
+        
+        // 初始化显示第一个问题
+        displayQuestion();
+    </script>
+</body>
+</html>
